@@ -1,0 +1,44 @@
+.assistant-orb {
+  display: block;
+  width: 214px;
+  height: 226px;
+  margin-bottom: 12px;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.anime-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 25px #a78bfa38);
+}
+
+.orb-sparkle {
+  z-index: 1;
+}
+
+.sparkle-one {
+  top: 13px;
+  right: -3px;
+}
+
+.sparkle-two {
+  bottom: 22px;
+  left: 2px;
+}
+
+@media (max-width: 760px) {
+  .assistant-orb {
+    width: 180px;
+    height: 190px;
+  }
+}
+
+@media (max-width: 430px) {
+  .assistant-orb {
+    width: 154px;
+    height: 164px;
+  }
+}

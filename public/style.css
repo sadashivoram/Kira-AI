@@ -1,0 +1,360 @@
+@import url("/styles.css");
+@import url("/avatar.css");
+
+.assistant-orb {
+  overflow: visible;
+}
+
+#vrm-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: none;
+  border-radius: 20px;
+}
+
+.assistant-orb.has-vrm #vrm-canvas {
+  display: block;
+}
+
+.assistant-orb.has-vrm #avatar-fallback {
+  display: none;
+}
+
+.assistant-orb.has-vrm .orb-sparkle {
+  z-index: 2;
+}
+
+.api-modal {
+  width: min(510px, calc(100% - 28px));
+  max-width: none;
+  max-height: min(88vh, 780px);
+  padding: 0;
+  overflow: auto;
+  border: 1px solid #b8a8ff38;
+  border-radius: 16px;
+  background: #10121e;
+  color: #eeedf6;
+  box-shadow: 0 24px 100px #000b, 0 0 38px #9273ed1e;
+}
+
+.api-modal::backdrop {
+  background: #05060bc9;
+  backdrop-filter: blur(7px);
+}
+
+.api-modal-card {
+  position: relative;
+  padding: 27px;
+}
+
+.api-modal-card .section-kicker {
+  justify-content: flex-start;
+}
+
+.api-modal-card h2 {
+  margin: 10px 0 6px;
+  font: 700 22px Manrope, sans-serif;
+  letter-spacing: -.5px;
+}
+
+.modal-intro {
+  margin-bottom: 18px;
+  color: #9998ac;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 29px;
+  height: 29px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff06;
+  color: #c1bdd0;
+  font-size: 19px;
+}
+
+.api-field {
+  display: grid;
+  gap: 7px;
+  margin-top: 13px;
+  color: #dedbea;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.api-field input {
+  width: 100%;
+  min-width: 0;
+  height: 37px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  outline: none;
+  background: #171927;
+  color: #eeeaf9;
+  font-size: 10px;
+}
+
+.api-field input:focus {
+  border-color: #ae99fa72;
+}
+
+.api-field input[type=file] {
+  padding: 8px;
+}
+
+.api-field small {
+  color: #858497;
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.api-field em {
+  margin-left: 5px;
+  color: #aaa0c8;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.security-warning {
+  margin: 16px 0 0;
+  padding: 10px 11px;
+  border: 1px solid #f1bd7940;
+  border-radius: 8px;
+  background: #f1bd790c;
+  color: #dfc69f;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 17px;
+}
+
+.security-note {
+  margin: 0 0 12px 41px;
+  color: #dfc69f;
+}
+
+/* Keep Kira's avatar as a full-height visual layer behind the existing UI. */
+.main-area {
+  position: relative;
+  isolation: isolate;
+}
+
+.sidebar {
+  z-index: 3;
+  background: rgba(12, 14, 24, 0.9);
+  backdrop-filter: blur(20px);
+}
+
+.topbar,
+.app-footer {
+  position: relative;
+  z-index: 1;
+  background: rgba(9, 11, 20, 0.42);
+  backdrop-filter: blur(18px);
+}
+
+.topbar {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+#chat-view > :not(#avatar-stage) {
+  position: relative;
+  z-index: 1;
+}
+
+#avatar-stage {
+  position: fixed;
+  inset: 62px 0 0 49vw;
+  z-index: 0;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  animation: none;
+  pointer-events: none;
+}
+
+#avatar-stage::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(90deg, rgba(9, 11, 20, 0.3), transparent 35%, rgba(9, 11, 20, 0.08));
+  content: "";
+}
+
+#avatar-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center 42%;
+  opacity: 0.72;
+  filter: brightness(1.1) saturate(1.08) drop-shadow(0 16px 42px rgba(167, 139, 250, 0.24));
+  transform: scale(1.1);
+}
+
+#vrm-canvas {
+  z-index: 1;
+  border-radius: 0;
+  opacity: 0.92;
+}
+
+#avatar-stage .orb-sparkle {
+  display: none;
+}
+
+.welcome-block {
+  width: min(1100px, calc(100% - 72px));
+  padding: 78px 12px 0;
+  text-align: left;
+}
+
+.welcome-eyebrow {
+  justify-content: flex-start;
+}
+
+.welcome-block h1 {
+  font-size: clamp(34px, 4vw, 48px);
+}
+
+.welcome-copy {
+  max-width: 430px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.suggestions {
+  align-self: flex-start;
+  width: min(380px, calc(100% - 72px));
+  grid-template-columns: 1fr;
+  margin: 28px 0 0 max(36px, calc((100% - 1100px) / 2 + 12px));
+}
+
+.suggestion-card {
+  background: rgba(17, 19, 31, 0.68);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.14);
+}
+
+.conversation {
+  width: min(760px, calc(100% - 72px));
+  max-height: min(42vh, 440px);
+  overflow: auto;
+  padding: 18px 10px;
+  border: 1px solid rgba(206, 199, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(10, 12, 21, 0.38);
+  backdrop-filter: blur(14px);
+}
+
+.message-body {
+  background: rgba(18, 20, 32, 0.82);
+  backdrop-filter: blur(14px);
+}
+
+.composer-wrap {
+  width: min(760px, calc(100% - 72px));
+  padding: 18px 0 26px;
+}
+
+.composer {
+  border-color: rgba(190, 171, 255, 0.34);
+  background: rgba(15, 17, 29, 0.78);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 18px 58px rgba(0, 0, 0, 0.3), 0 0 40px rgba(153, 125, 255, 0.08);
+}
+
+.composer-note {
+  text-shadow: 0 1px 8px #090b14;
+}
+
+@media (max-width: 500px) {
+  .api-modal-card {
+    padding: 21px 17px;
+  }
+}
+
+@media (max-width: 900px) {
+  #avatar-stage {
+    left: 39vw;
+  }
+
+  #avatar-fallback {
+    opacity: 0.28;
+  }
+
+  #vrm-canvas {
+    opacity: 0.62;
+  }
+
+  .welcome-block {
+    padding-top: 58px;
+  }
+}
+
+@media (max-width: 600px) {
+  #avatar-stage {
+    inset: 62px 0 0 25vw;
+  }
+
+  #avatar-fallback {
+    opacity: 0.2;
+  }
+
+  #vrm-canvas {
+    opacity: 0.45;
+  }
+
+  .welcome-block,
+  .suggestions,
+  .conversation,
+  .composer-wrap {
+    width: calc(100% - 32px);
+  }
+
+  .welcome-block {
+    padding: 42px 0 0;
+  }
+
+  .welcome-block h1 {
+    font-size: 34px;
+  }
+
+  .suggestions {
+    gap: 8px;
+    align-self: center;
+    width: calc(100% - 32px);
+    margin: 22px auto 0;
+  }
+
+  .suggestion-card {
+    min-height: 56px;
+  }
+
+  .conversation {
+    max-height: 38vh;
+  }
+
+  .composer-wrap {
+    padding-bottom: 16px;
+  }
+}
